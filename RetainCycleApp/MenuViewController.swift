@@ -8,9 +8,13 @@
 
 import UIKit
 
+// nemesis로 다른 Robot 클래스를 참조하는 상황
+// 로봇 1과 로봇 2가 서로를 참조하고 있으니 strong memory cycle이 형성됨
+// weak로 선언
+// 더 이상 strong memory cycle이 발생하지 않음
 class Robot : NSObject {
     var name : String
-    var nemesis : Robot?
+    weak var nemesis : Robot?
     var model : Int
     
     override init() {
