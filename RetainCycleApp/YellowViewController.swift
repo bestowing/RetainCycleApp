@@ -8,9 +8,9 @@
 
 import UIKit
 
-// DispatchSource에 넣는 이벤트 클로저에서 self를 참조하고 있음 -> VC와 클로저간에 strong memory cycle이 형성됨
+// DispatchSource에 넣는 이벤트 클로저에서 self를 참조하고 있음 -> VC와 클로저간에 strong reference cycle이 형성됨
 // 클로저의 self(YellowViewController의 인스턴스)를 weak로 선언
-// 더 이상 strong memory cycle이 발생하지 않음
+// 더 이상 strong reference cycle이 발생하지 않음
 class YellowViewController: UIViewController {
     @IBOutlet weak var eventButton: UIButton!
     private var scrollTimerSource : DispatchSourceTimer = DispatchSource.makeTimerSource(flags: [], queue: DispatchQueue.main)
